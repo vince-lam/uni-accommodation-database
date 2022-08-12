@@ -29,7 +29,12 @@ banner {
   background-color:#c9aba9;
   font-family: verdana;
   font-size: 200%;
-  text-align: Left;
+  position:absolute;
+  left: 175px;
+  right: 0;
+  padding-left: 15px;
+  height:40px;
+  background-size:100%;  
 }
 
 h1 {
@@ -98,4 +103,15 @@ img {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+.container {
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 25%;
+  clear: both;
 }
