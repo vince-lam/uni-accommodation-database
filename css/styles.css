@@ -24,6 +24,13 @@ body {
   background-color: #c9aba9;
   color: white;
 }
+banner {
+  color: 	#f1efe3;
+  background-color:#c9aba9;
+  font-family: verdana;
+  font-size: 200%;
+  text-align: Left;
+}
 
 h1 {
   color: 	#f1efe3;
