@@ -1,4 +1,4 @@
-/* 1. Find number of students who have have a current status of waiting and placed. */
+/* 1. Find number of students who have a current status of waiting and placed. */
 SELECT
     SUM(CASE WHEN current_status = 'waiting' THEN 1 ELSE 0 END) AS waiting_count,
     SUM(CASE WHEN current_status = 'placed' THEN 1 ELSE 0 END) AS placed_count,
@@ -79,7 +79,7 @@ SELECT
 	,100.0 * SUM(CASE WHEN lease_id IS NOT NULL THEN 1 ELSE 0 END) / COUNT(*) AS perc_rooms_leased
 FROM all_rooms_CTE
 GROUP BY halls_name
-
+ORDER BY 2 DESC
 
 /* 9. What is percentage of rooms leased grouped by hall and building. */
 WITH all_rooms_CTE(room_id,building_id,building_name,halls_id,halls_name,monthly_rent,lease_id) AS (
@@ -102,6 +102,7 @@ SELECT
 	,100.0 * SUM(CASE WHEN lease_id IS NOT NULL THEN 1 ELSE 0 END) / COUNT(*) AS perc_rooms_leased
 FROM all_rooms_CTE
 GROUP BY halls_name, building_name
+ORDER BY 3 DESC
 
 /* 10. Total monthly rent by hall */
 WITH all_rooms_CTE(room_id,building_id,building_name,halls_id,halls_name,monthly_rent,lease_id) AS (
@@ -143,8 +144,8 @@ WITH all_rooms_CTE(room_id,building_id,building_name,halls_id,halls_name,monthly
 )
     SELECT 
         halls_name
-        ,ROUND(SUM(monthly_rent), 2) 
-        ,RANK() OVER (ORDER BY ROUND(SUM(monthly_rent), 2)   DESC)
+        ,ROUND(SUM(monthly_rent), 2) AS total_monthly_rent
+        ,RANK() OVER (ORDER BY ROUND(SUM(monthly_rent), 2)   DESC) AS rank
     FROM all_rooms_CTE
     WHERE lease_id IS NOT NULL
     GROUP BY halls_name
@@ -231,7 +232,7 @@ FROM room r
 LEFT JOIN inspection i ON r.room_id=i.room_id
 WHERE inspection_id IS NULL 
 OR satisfactory_condition != 1
-OR inspection_date < '2021-01-01'
+OR inspection_date < DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR)
 
 /* 16. Group buildings by number of rooms to be inspected, to improve efficiency of inspections - either have never had an inspection or their condition is not satisfactory */
 SELECT 
@@ -244,8 +245,9 @@ LEFT JOIN halls h ON b.halls_id = h.halls_id
 LEFT JOIN inspection i ON r.room_id=i.room_id
 WHERE inspection_id IS NULL
 OR satisfactory_condition != 1
-OR inspection_date < '2021-01-01'
+OR inspection_date < DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR)
 GROUP BY b.building_name, h.halls_of_residence_name
+ORDER BY 3 DESC
 
 /* 17. Group halls by number of rooms to be inspected, to improve efficiency of inspections - either have never had an inspection or their condition is not satisfactory */
 SELECT 
@@ -257,5 +259,6 @@ LEFT JOIN halls h ON b.halls_id = h.halls_id
 LEFT JOIN inspection i ON r.room_id=i.room_id
 WHERE inspection_id IS NULL
 OR satisfactory_condition != 1
-OR inspection_date < '2021-01-01'
+OR inspection_date < DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR)
 GROUP BY h.halls_of_residence_name
+ORDER BY 2 DESC
