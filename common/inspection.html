@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Inspection</title>
+    <meta charset="UTF-8">
+</head>
+    
+<body>
+    
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="room.html">Room</a>
+        <a href="lease.html">Lease agreement</a>
+        <a href="invoice.html">Invoice</a>
+        <a class="active" href="inspection.html">Inspection</a>
+        <a href="about_private.html">About</a>
+    </div>
+    
+    <!-- Page content -->
+    <div class="main">
+        <banner >YAHUAS Administrator Portal</banner>
+        <br><br><br><br>
+    </div>
+    
+    <div class="main" style="width: 25%; position: absolute; left:30%;">
+        <h2>Add an inspection</h2>
+            <p> Please enter details: </p> 
+
+
+        <div class="container">
+            <form method="post" action="../php/add_inspection_data.php" style="width: 60vw;"> 
+                YAHUAS Inspector ID: <input type="number" name="yahuas_staff_id"/> <br><br>
+                Inspection date: <input type="date" name="inspection_date"/> <br><br>
+                Room ID: <input type="number" name="room_id"/> <br><br>
+                Satisfactory condition: <input list="binary" name="satisfactory_condition"/>
+                <datalist id="binary">
+                  <option value="1">
+                  <option value="0">
+                </datalist> <br><br>   
+                Inspection comments: <input type="text" name="inspection_comments"/> <br><br>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
