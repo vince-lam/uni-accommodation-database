@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Room details</title>
+    <meta charset="UTF-8">
+</head>
+    
+<body>
+    
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a class="active" href="room.html">Room</a>
+        <a href="lease.html">Lease agreement</a>
+        <a href="invoice.html">Invoice</a>
+        <a href="inspection.html">Inspection</a>
+        <a href="about_private.html">About</a>
+    </div>
+    
+    <!-- Page content -->
+    <div class="main">
+        <banner >YAHUAS Administrator Portal</banner>
+        <br><br><br><br>
+    </div>
+    
+    <div class="main" style="width: 25%; position: absolute; left:30%;">
+        <h2>Add a new room</h2>
+            <p> Please enter details: </p> 
+
+
+        <div class="container">
+            <form method="post" action="../php/add_room_data.php" style="width: 60vw;"> 
+                Room type ID: <input type="number" name="room_type_id"/> <br><br>
+                Building ID: <input type="number" name="building_id"/> <br><br>
+                Room number: <input type="number" name="room_number"/> <br><br>
+                Monthly rent: <input type="number" name="monthly_rent"/> <br><br>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

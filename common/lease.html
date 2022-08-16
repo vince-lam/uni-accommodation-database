@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Lease agreement</title>
+    <meta charset="UTF-8">
+</head>
+    
+<body>
+    
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="room.html">Room</a>
+        <a class="active" href="lease.html">Lease agreement</a>
+        <a href="invoice.html">Invoice</a>
+        <a href="inspection.html">Inspection</a>
+        <a href="about_private.html">About</a>
+    </div>
+    
+    <!-- Page content -->
+    <div class="main">
+        <banner >YAHUAS Administrator Portal</banner>
+        <br><br><br><br>
+    </div>
+    
+    <div class="main" style="width: 25%; position: absolute; left:30%;">
+        <h2>Add a lease agreement</h2>
+            <p> Please enter details: </p> 
+
+
+        <div class="container">
+            <form method="post" action="../php/add_lease_data.php" style="width: 60vw;"> 
+                Student ID: <input type="number" name="student_id"/> <br><br>
+                Lease duration: <input type="text" name="lease_duration"/> <br><br>
+                Lease start date: <input type="date" name="start_date"/> <br><br>
+                Lease end date: <input type="date" name="end_date"/> <br><br>
+                Room ID: <input type="number" name="room_id"/> <br><br>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Invoices</title>
+    <meta charset="UTF-8">
+</head>
+    
+<body>
+    
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="room.html">Room</a>
+        <a href="lease.html">Lease agreement</a>
+        <a class="active" href="invoice.html">Invoice</a>
+        <a href="inspection.html">Inspection</a>
+        <a href="about_private.html">About</a>
+    </div>
+    
+    <!-- Page content -->
+    <div class="main">
+        <banner >YAHUAS Administrator Portal</banner>
+        <br><br><br><br>
+    </div>
+    
+    <div class="main" style="width: 25%; position: absolute; left:30%;">
+        <h2>Add an invoice</h2>
+            <p> Please enter details: </p> 
+
+
+        <div class="container">
+            <form method="post" action="../php/add_invoice_data.php" style="width: 60vw;"> 
+                Lease ID: <input type="number" name="lease_id"/> <br><br>
+                Invoice date: <input type="date" name="invoice_date"/> <br><br>
+                Year semester: <input type="text" name="year_semester"/> <br><br>
+                Date payment due: <input type="date" name="payment_due"/> <br><br>
+                Invoice paid (1 for paid, 0 for unpaid): <input list="binary" name="invoice_paid"/>
+                <datalist id="binary">
+                    <option value="1">
+                    <option value="0">
+                </datalist> <br><br>   
+
+                Payment method: <input type="text" name="payment_method"/> <br><br>
+                First reminder date: <input type="date" name="reminder_date"/> <br><br>
+                Second reminder date: <input type="date" name="reminder_date_2"/> <br><br>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
