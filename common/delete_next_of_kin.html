@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Invoices</title>
+    <meta charset="UTF-8">
+</head>
+    
+<body>
+    
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="room.html">Room</a>
+        <a href="lease.html">Lease agreement</a>
+        <a class="active" href="invoice.html">Invoice</a>
+        <a href="inspection.html">Inspection</a>
+        <a href="about_private.html">About</a>
+    </div>
+    
+    <!-- Page content -->
+    <div class="main">
+        <banner >YAHUAS Administrator Portal</banner>
+        <br><br><br><br>
+    </div>
+    
+    <div class="main" style="width: 25%; position: absolute; left:30%;">
+        <h2>Delete next of kin record</h2>
+
+        <div class="container">
+
+            <form id="myform" method="POST" action="../php/delete_next_of_kin.php">
+                Next of kin ID: <input type="number" name="next_of_kin_id" />
+                <input type="submit" value="Submit" name="Submit">
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,4 +1,4 @@
-<?php
+<<?php
 $yahuas_staff_id = $_REQUEST["yahuas_staff_id"]; //get the data from the form
 $inspection_date = $_REQUEST['inspection_date'];	
 $room_id = $_REQUEST['room_id'];

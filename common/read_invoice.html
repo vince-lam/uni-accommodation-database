@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Home</title>
+    <meta charset="UTF-8">
+</head>
+    
+<body>
+    
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="#">Student</a>
+        <a href="#">Next of kin</a>
+        <a href="#">University staff</a>
+        <a href="#">Course</a>
+        <a href="#">University</a>
+        <a href="#">Lease agreement</a>
+        <a href="#">Invoice</a>
+        <a href="#">Inspection</a>
+        <a href="#">Room</a>
+        <a href="#">Room type</a>
+        <a href="#">Building</a>
+        <a href="#">Halls of residence</a>
+        <a href="#">YAHUAS staff</a>
+        <a href="#">YAHUAS accounts</a>
+    </div>
+    
+    <!-- Page content -->
+    <div class="main">
+        <banner >YAHUAS Administrator Portal</banner>
+        <br><br><br><br>
+    </div>
+    
+    <div class="main" style="width: 25%; position: absolute; left:30%;">
+        <h2>Request invoice data details</h2>
+
+        <form id=”myform” method="POST" action="../php/read_invoice.php">
+        Invoice ID: <input type="number" id="invoice_id" name="invoice_id" />
+        <input type="submit" value="Submit" name="Submit">
+
+
+    </div>
+    
+</body>
+</html>
