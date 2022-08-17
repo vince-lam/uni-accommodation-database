@@ -37,26 +37,33 @@
          <br><br><br><br>
       </div>
 
-      <div class="main" style="width: 40%; position: absolute; left:20%;">
-         <h2>Report</h2>
-            <p> Number of students by accommodation status </p> 
+      <div class="main" style="width: 50%; position: absolute; left:15%;">
+         <h2>Report: Top 10 buildings with most rooms due an inspection</h2>
 
          <div class="container">
          <?php
          $conn=mysqli_connect('localhost','root','','yahuas');
-         $sql="SELECT
-         SUM(CASE WHEN current_status = 'waiting' THEN 1 ELSE 0 END) AS waiting_count,
-         SUM(CASE WHEN current_status = 'placed' THEN 1 ELSE 0 END) AS placed_count,
-         COUNT(*) AS total_students
-         FROM `student`;
+         $sql="SELECT 
+                  h.halls_of_residence_name
+               ,COUNT(r.room_id) rooms_to_be_inspected
+               FROM room r
+               LEFT JOIN building b USING (building_id)
+               LEFT JOIN halls h USING (halls_id)
+               LEFT JOIN inspection i USING (room_id)
+               WHERE inspection_id IS NULL
+               OR satisfactory_condition != 1
+               OR inspection_date < DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR)
+               GROUP BY h.halls_of_residence_name
+               ORDER BY 2 DESC
+               LIMIT 10
          ";
       $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-   echo "<table><tr><th>Waiting</th><th>Placed</th><th>Total</th></tr>";
+   echo "<table><tr><th>Halls</th><th>rooms_to_be_inspected</th></tr>";
     // output data of each row
    while($row = $result->fetch_assoc()) {
-      echo "<tr><td>" . $row["waiting_count"]. "</td><td>" . $row["placed_count"]. "</td><td>" . $row["total_students"]. "</td></tr>";
+      echo "<tr><td>" . $row["halls_of_residence_name"]. "</td><td>" . $row["rooms_to_be_inspected"]. "</td></tr>";
    }
    echo "</table>";
 } else {

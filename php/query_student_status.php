@@ -4,7 +4,7 @@
 
 <head>
       <link rel="stylesheet" href="../css/styles.css">
-      <title>Inspection</title>
+      <title>Query</title>
       <meta charset="UTF-8">
 </head>
 
@@ -12,10 +12,16 @@
 
       <!-- Side navigation -->
       <div class="sidenav">
-         <a href="../common/room.html">Room</a>
-         <a href="../common/lease.html">Lease agreement</a>
-         <a href="../common/invoice.html">Invoice</a>
-         <a href="../common/inspection.html">Inspection</a>
+         <a href="../common/room.html">Add room</a>
+         <a href="../common/lease.html">Add lease agreement</a>
+         <a href="../common/invoice.html">Add invoice</a>
+         <a href="../common/read_invoice.html">Read invoice</a>
+         <a href="../common/update_invoice_record.html">Update invoice</a>
+         <a href="../common/inspection.html">Add inspection</a>
+         <a href="../common/delete_next_of_kin.html">Delete next of kin record</a>
+         <a href="query_student_count_table.php">Report: student status count</a>
+         <a href="query_buildings_due_inspection.php">Report: buildings due inspection</a>
+         <a href="query_top10_building_rent.php">Report: Top buildings by total monthly rent</a>   
          <a href="../common/about_private.html">About</a>
       </div>
 
@@ -25,7 +31,7 @@
          <br><br><br><br>
       </div>
 
-      <div class="main" style="width: 25%; position: absolute; left:30%;">
+      <div class="main" style="width: 25%; position: absolute; left:20%;">
          <h2>Report: Number of students by status </h2>
 
          <div class="container">

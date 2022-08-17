@@ -13,10 +13,16 @@
     
     <!-- Side navigation -->
     <div class="sidenav">
-        <a href="room.html">Room</a>
-        <a href="lease.html">Lease agreement</a>
-        <a href="invoice.html">Invoice</a>
-        <a class="active" href="inspection.html">Inspection</a>
+        <a href="room.html">Add room</a>
+        <a href="lease.html">Add lease agreement</a>
+        <a href="invoice.html">Add invoice</a>
+        <a href="read_invoice.html">Read invoice</a>
+        <a href="update_invoice_record.html">Update invoice</a>
+        <a class="active" href="inspection.html">Add inspection</a>
+        <a href="delete_next_of_kin.html">Delete next of kin record</a>
+        <a href="../php/query_student_count_table.php">Report: student status count</a>
+        <a href="../php/query_buildings_due_inspection.php">Report: buildings due inspection</a>
+        <a href="../php/query_top10_building_rent.php">Report: Top buildings by total monthly rent</a>   
         <a href="about_private.html">About</a>
     </div>
     
@@ -26,7 +32,7 @@
         <br><br><br><br>
     </div>
     
-    <div class="main" style="width: 25%; position: absolute; left:30%;">
+    <div class="main" style="width: 35%; position: absolute; left:20%;">
         <h2>Add an inspection</h2>
             <p> Please enter details: </p> 
 
@@ -38,8 +44,8 @@
                 Room ID: <input type="number" name="room_id"/> <br><br>
                 Satisfactory condition: <input list="binary" name="satisfactory_condition"/>
                 <datalist id="binary">
-                  <option value="1">
-                  <option value="0">
+                    <option value="1">
+                    <option value="0">
                 </datalist> <br><br>   
                 Inspection comments: <input type="text" name="inspection_comments"/> <br><br>
                 <input type="submit" value="Submit"/>
