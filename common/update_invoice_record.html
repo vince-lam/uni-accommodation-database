@@ -4,7 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Room details</title>
+    <title>Update invoice</title>
     <meta charset="UTF-8">
 </head>
     
@@ -13,11 +13,11 @@
     
     <!-- Side navigation -->
     <div class="sidenav">
-        <a class="active" href="room.html">Add room</a>
+        <a href="room.html">Add room</a>
         <a href="lease.html">Add lease agreement</a>
         <a href="invoice.html">Add invoice</a>
         <a href="read_invoice.html">Read invoice</a>
-        <a href="update_invoice_record.html">Update invoice</a>
+        <a class="active" href="update_invoice_record.html">Update invoice</a>
         <a href="inspection.html">Add inspection</a>
         <a href="delete_next_of_kin.html">Delete next of kin record</a>
         <a href="../php/query_student_count_table.php">Report: student status count</a>
@@ -32,17 +32,18 @@
         <br><br><br><br>
     </div>
     
-    <div class="main" style="width: 25%; position: absolute; left:30%;">
-        <h2>Add a new room</h2>
-            <p> Please enter details: </p> 
+    <div class="main" style="width: 35%; position: absolute; left:20%;">
+        <h2>Update whether invoice has been paid</h2>
 
 
-        <div class="container">
-            <form method="post" action="../php/add_room_data.php" style="width: 60vw;"> 
-                Room type ID: <input type="number" name="room_type_id"/> <br><br>
-                Building ID: <input type="number" name="building_id"/> <br><br>
-                Room number: <input type="number" name="room_number"/> <br><br>
-                Monthly rent: <input type="number" name="monthly_rent"/> <br><br>
+        <div class="container" >
+            <form method="post" action="../php/update_invoice_record.php" style="width: 60vw;"> 
+                Lease ID: <input type="number" name="lease_id"/> <br><br>
+                Invoice paid (1 for paid, 0 for unpaid): <input list="binary" name="invoice_paid"/>
+                <datalist id="binary">
+                    <option value="1">
+                    <option value="0">
+                </datalist> <br><br>   
                 <input type="submit" value="Submit"/>
             </form>
         </div>

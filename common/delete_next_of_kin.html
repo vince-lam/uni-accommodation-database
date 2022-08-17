@@ -4,7 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Room details</title>
+    <title>Next of Kin</title>
     <meta charset="UTF-8">
 </head>
     
@@ -13,13 +13,13 @@
     
     <!-- Side navigation -->
     <div class="sidenav">
-        <a class="active" href="room.html">Add room</a>
+        <a href="room.html">Add room</a>
         <a href="lease.html">Add lease agreement</a>
         <a href="invoice.html">Add invoice</a>
         <a href="read_invoice.html">Read invoice</a>
         <a href="update_invoice_record.html">Update invoice</a>
         <a href="inspection.html">Add inspection</a>
-        <a href="delete_next_of_kin.html">Delete next of kin record</a>
+        <a class="active" href="delete_next_of_kin.html">Delete next of kin record</a>
         <a href="../php/query_student_count_table.php">Report: student status count</a>
         <a href="../php/query_buildings_due_inspection.php">Report: buildings due inspection</a>
         <a href="../php/query_top10_building_rent.php">Report: Top buildings by total monthly rent</a>   
@@ -32,19 +32,15 @@
         <br><br><br><br>
     </div>
     
-    <div class="main" style="width: 25%; position: absolute; left:30%;">
-        <h2>Add a new room</h2>
-            <p> Please enter details: </p> 
-
+    <div class="main" style="width: 35%; position: absolute; left:20%;">
+        <h2>Delete next of kin record</h2>
 
         <div class="container">
-            <form method="post" action="../php/add_room_data.php" style="width: 60vw;"> 
-                Room type ID: <input type="number" name="room_type_id"/> <br><br>
-                Building ID: <input type="number" name="building_id"/> <br><br>
-                Room number: <input type="number" name="room_number"/> <br><br>
-                Monthly rent: <input type="number" name="monthly_rent"/> <br><br>
-                <input type="submit" value="Submit"/>
-            </form>
+
+            <form id="myform" method="POST" action="../php/delete_next_of_kin.php">
+                Next of kin ID: <input type="number" name="next_of_kin_id" />
+                <input type="submit" value="Submit" name="Submit">
+
         </div>
     </div>
     

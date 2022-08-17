@@ -13,7 +13,7 @@
     <!-- <img src="img/logo_navy_cropped.png" class="left"; z-index: 1; position: absolute; left: 0px; top: 0px;"> -->
 
     <div class="sidenav">
-         <a href="../common/room.html">Add room</a>
+        <a href="../common/room.html">Add room</a>
         <a href="../common/lease.html">Add lease agreement</a>
         <a href="../common/invoice.html">Add invoice</a>
         <a href="../common/read_invoice.html">Read invoice</a>
@@ -30,28 +30,25 @@
     <div class="main">
         <banner >YAHUAS Administrator Portal</banner>
         <br><br><br><br>
-
+        
         <?php
-         $lease_id = $_REQUEST["lease_id"]; //get the data from the form
-         $building_id = $_REQUEST['invoice_date'];	
-         $year_semester = $_REQUEST['year_semester'];
-         $payment_due = $_REQUEST['payment_due'];	
-         $invoice_paid = $_REQUEST['invoice_paid'];	
-         $payment_method = $_REQUEST['payment_method'];
-         $reminder_date = $_REQUEST['reminder_date'];	
-         $reminder_date_2 = $_REQUEST['reminder_date_2'];	
+        $next_of_kin_id = $_REQUEST ['next_of_kin_id'];
+        $conn=mysqli_connect('localhost','root','','yahuas');
 
-         $conn=mysqli_connect('localhost','root','','yahuas');
-         $sql="INSERT INTO room (lease_id, invoice_date, year_semester, payment_due, invoice_paid, payment_method, reminder_date, reminder_date_2) VALUES ('$lease_id','$invoice_date','$year_semester','$payment_due','$invoice_paid', '$payment_method', '$reminder_date', '$reminder_date_2')";
-         if (mysqli_connect_errno())
-            {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            }
-         if (mysqli_query($conn,$sql)) {
-            echo "Record added";
-            }
-         mysqli_close($conn);				//close connection to database
-         ?> 
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
+        // sql to delete a record
+        $sql = "DELETE FROM next_of_kin WHERE next_of_kin_id = '$next_of_kin_id'";
+
+        if ($conn->query($sql) === TRUE) {
+        echo "Record deleted successfully";
+        } else {
+        echo "Error deleting record: " . $conn->error;
+        }
+
+        $conn->close();
+        ?>
 
     </div>
 </body>

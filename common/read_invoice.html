@@ -4,7 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Room details</title>
+    <title>Read invoices</title>
     <meta charset="UTF-8">
 </head>
     
@@ -13,10 +13,10 @@
     
     <!-- Side navigation -->
     <div class="sidenav">
-        <a class="active" href="room.html">Add room</a>
+        <a href="room.html">Add room</a>
         <a href="lease.html">Add lease agreement</a>
         <a href="invoice.html">Add invoice</a>
-        <a href="read_invoice.html">Read invoice</a>
+        <a class="active" href="read_invoice.html">Read invoice</a>
         <a href="update_invoice_record.html">Update invoice</a>
         <a href="inspection.html">Add inspection</a>
         <a href="delete_next_of_kin.html">Delete next of kin record</a>
@@ -33,19 +33,13 @@
     </div>
     
     <div class="main" style="width: 25%; position: absolute; left:30%;">
-        <h2>Add a new room</h2>
-            <p> Please enter details: </p> 
+        <h2>Request invoice data details</h2>
+
+        <form id=”myform” method="POST" action="../php/read_invoice.php">
+        Invoice ID: <input type="number" id="invoice_id" name="invoice_id" />
+        <input type="submit" value="Submit" name="Submit">
 
 
-        <div class="container">
-            <form method="post" action="../php/add_room_data.php" style="width: 60vw;"> 
-                Room type ID: <input type="number" name="room_type_id"/> <br><br>
-                Building ID: <input type="number" name="building_id"/> <br><br>
-                Room number: <input type="number" name="room_number"/> <br><br>
-                Monthly rent: <input type="number" name="monthly_rent"/> <br><br>
-                <input type="submit" value="Submit"/>
-            </form>
-        </div>
     </div>
     
 </body>
